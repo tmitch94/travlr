@@ -9,4 +9,5 @@ sites/site*/public/theme/
 textpattern/
 HISTORY.txt
 README.txt
-packagelock.json
+package-lock.json
+package.json
