@@ -1,18 +1,27 @@
 [
   {
+    "code":"FC563925",
     "name": "FIRST CLASS ROOM",
+    "start": "2021-02-14T08:00:00Z",
+    "end": "2021-02-18T08:00:00Z",
     "image": "first-class.jpg",
     "description": "<p>Cras dui sapien, feugiat vitae tristique ut, lobortis tempor orci. Donec pulvinar sagittis metus ut tristique. Pellentes que habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas idios. </p>",
     "rate":"<p>Rate: 220 / Day</p>"
   },
   {
+    "code": "DR785469",
     "name": "DELUXE ROOM",
+    "start": "2021-02-14T08:00:00Z",
+    "end": "2021-02-18T08:00:00Z",
     "image": "deluxe.jpg",
     "description": "<p>Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis.</p>",
     "rate":"<p>Rate: 150 / Day</p>"
   },
   {
+    "code": "SR485632",
     "name": "SUITE ROOM",
+    "start": "2021-02-14T08:00:00Z",
+    "end": "2021-02-18T08:00:00Z",
     "image": "suite.jpg",
     "description": "<p>Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis.</p>",
     "rate": "<p>Rate: 180 / Day</p>"
