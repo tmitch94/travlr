@@ -14,7 +14,7 @@ const options = {
 
 const travel = async function(req, res,next){
     await fetch(tripEndpoint, options)
-    .then(res=> res.json)
+    .then(res=> res.json())
     .then(json => {
         console.log(json);
         res.render('travel', {
