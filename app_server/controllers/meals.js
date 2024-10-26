@@ -5,7 +5,7 @@ const meals = (req,res) => {
     res.render('meals', {
         title: 'Meals', 
         mealType,
-        isMeal: true});
+        isMeals: true});
 };
 
 module.exports = {
