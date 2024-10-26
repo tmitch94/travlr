@@ -11,9 +11,9 @@ var usersRouter = require('./app_server/routes/users');
 var travelRouter = require('./app_server/routes/travel');
 var roomRouter = require ('./app_server/routes/rooms');
 var mealRouter = require ('./app_server/routes/meals');
-var newsRouter = require ('./app_server/routes/meals');
-var aboutRouter = require ('./app_server/routes/meals');
-var contactRouter = require ('./app_server/routes/meals');
+var newsRouter = require ('./app_server/routes/news');
+var aboutRouter = require ('./app_server/routes/about');
+var contactRouter = require ('./app_server/routes/contact');
 var apiRouter = require('./app_api/routes/index');
 
 var handlebars = require('hbs');

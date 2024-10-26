@@ -3,27 +3,36 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Dive Sites - Bhaccasyoniztas Beach Resort Website Template</title>
+	<title>News - Travlr Getaways Website Template</title>
 	<link rel="stylesheet" href="stylesheets/style.css" type="text/css">
 </head>
 <body>
 	<div id="background">
 		<div id="page">
-			{{> header }}
+			{{> header}}
 			<div id="contents">
 				<div class="box">
 					<div>
-						<div class="body">
-							<h1>Travel</h1>
-							<ul id="sites">
-				{{#each trips}}
-								<li>
-									<a href="/api/trips/{{this.code}}"><img src="images/{{this.image}}" alt="Img"</a>
-									<h2><a href="/travel">{{this.name}}</a></h2>
-									{{{this.description}}}
-								</li>
-				{{/each}}				
-							</ul>
+						<div id="news" class="body">
+							<div class="sidebar">
+								{{> latestNews}}
+								{{> vacationTips}}
+							</div>
+							<div>
+								<h1>News</h1>
+								<img src="images/{{this.newsType.image}}" alt="Img">
+								<h2>Experience Kayaking!</h2>
+								<span class="time">{{this.newsType.date}}<br>{{this.newsType.author}}</span>
+								<p>
+									Sed et augue lorem. In sit amet placerat arcu. Mauris volutpat ipsum ac justo mollis vel vestibulum orci gravida. Vestibulum sit amet porttitor odio. Nulla facilisi. Fusce at pretium felis. Sed consequat libero ut turpis venenatis ut aliquam risus semper. Etiam convallis mi vel risus pretium sodales. Etiam nunc lorem, ullamcorper vitae laoreet id, rutrum et tortor. Vivamus luctus, lacus id egestas facilisis, nunc nunc ultricies lorem, vitae pulvinar nibh urna vel velit.
+								</p>
+								<p>
+									Cras dui sapien, feugiat vitae tristique ut, lobortis tempor orci. Donec pulvinar sagittis metus ut tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In hac habitasse platea dictumst. Nulla at nunc sit amet justo cursus imperdiet. Mauris est leo, placerat nec eleifend eu, facilisis id dolor. Donec nisi nibh, elementum vitae imperdiet non, placerat et felis. Maecenas scelerisque odio quis arcu fringilla malesuada. Nulla facilisi. In libero nulla, fermentum ut pretium ac, pharetra et eros.
+								</p>
+								<p>
+									Phasellus viverra fringilla lacus, malesuada blandit velit iaculis dignissim. Suspendisse rutrum massa mauris. Donec quis tempus elit.Integer magna leo, posuere et dignissim vitae, porttitor at odio. Pellentesque a metus nec magna placerat volutpat.
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
