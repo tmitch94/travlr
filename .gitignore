@@ -12,5 +12,6 @@ README.txt
 package-lock.json
 node_modules\.bin
 node_modules
-
+.env
+/node_modules
 
