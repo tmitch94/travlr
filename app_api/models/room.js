@@ -10,4 +10,4 @@ const roomSchema = new mongoose.Schema(
     description: { type: String, required: true },
     rate: { type: String, required: true }
 });  
-const Rooms = mongoose.model('room', roomSchema);  module.exports = Rooms; 
+const Rooms = mongoose.model('rooms', roomSchema);  module.exports = Rooms; 

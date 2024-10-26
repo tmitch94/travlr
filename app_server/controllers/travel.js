@@ -16,7 +16,7 @@ const travel = async function(req, res,next){
     await fetch(tripEndpoint, options)
     .then(res=> res.json())
     .then(json => {
-        // console.log(json);
+         console.log(json);
         
         if(!(json instanceof Array)){
             message = 'API lookup error';
@@ -27,7 +27,8 @@ const travel = async function(req, res,next){
         res.render('travel', {
             title: 'Travlr Getaways', 
             trips: json,
-            isTravel: true 
+            isTravel: true,
+            message
         });
     })
     .catch(err => res.status(500).send(err.message));

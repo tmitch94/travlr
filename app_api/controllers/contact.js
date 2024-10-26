@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const Meals = require('../models/meals');
-const Model = mongoose.model('meals');
+const Contacts = require('../models/contact');
+const Model = mongoose.model('contact');
 
-const mealList = async(req,res) => {
+const roomList = async(req,res) => {
     const q = await Model
     .find({})
     .exec();
@@ -17,9 +17,9 @@ const mealList = async(req,res) => {
     }
 };
 
-const mealListByCode = async(req, res) =>{
+const roomListByCode = async(req, res) =>{
     const q = await Model
-    .find({'code': req.params.mealCode})
+    .find({'code': req.params.roomCode})
     .exec();
 
 
@@ -34,6 +34,6 @@ const mealListByCode = async(req, res) =>{
 
 
 module.exports = {
-    mealList,
-    mealListByCode
+    roomList,
+    roomListByCode
 };

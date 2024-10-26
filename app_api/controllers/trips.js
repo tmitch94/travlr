@@ -22,10 +22,6 @@ const tripList = async(req, res) =>{
     }
 };
 
-module.exports = {
-    tripList
-};
-
 const tripListByCode = async(req, res) =>{
     const q = await Model
     .find({'code': req.params.tripCode})
