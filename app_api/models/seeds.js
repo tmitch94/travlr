@@ -6,12 +6,14 @@ const Room = require('./room');
 var fs = require('fs');
 var trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf-8'));
 var rooms = JSON.parse(fs.readFileSync('./data/roomStyles.json', 'utf-8'));
+var meals = JSON.parse(fs.readFileSync('./data/mealType.json', 'utf-8'));
 
 //delete any existing records then insert seed data
 const seedDB = async()=>{
     await Trip.deleteMany({});
     await Trip.insertMany(trips);
     await Room.insertMany(rooms);
+    await Room.insertMany(meals);
 };
 
 //Close the MongoDB connection and exit
