@@ -12,16 +12,14 @@ router.route('/trips').get(tripsController.tripList);
 router.route('/trips/:tripCode').get(tripsController.tripListByCode);
 
 //Rooms
-router.route('rooms').get(roomsController.roomList);
+router.route('/rooms').get(roomsController.roomList);
 router.route('/rooms/:roomCode').get(roomsController.roomListByCode);
 
 //Meals
-router.route('meals').get(mealController.mealList);
+router.route('/meals').get(mealController.mealList);
 router.route('/meals/:mealCode').get(mealController.mealListByCode);
 
 
 //Contact
-router.route('meals').get(mealController.mealList);
-router.route('/meals/:mealCode').get(mealController.mealListByCode);
 
 module.exports = router;

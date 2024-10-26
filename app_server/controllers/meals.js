@@ -13,7 +13,7 @@ const meals = async function(req, res,next){
     await fetch(mealEndPoint, options)
     .then(res=> res.json())
     .then(json => {
-        // console.log(json);
+         console.log(json);
         
         if(!(json instanceof Array)){
             message = 'API lookup error';
@@ -24,7 +24,8 @@ const meals = async function(req, res,next){
         res.render('meals', {
             title: 'Meals', 
             meals: json,
-            isMeals: true 
+            isMeals: true,
+            message 
         });
     })
     .catch(err => res.status(500).send(err.message));

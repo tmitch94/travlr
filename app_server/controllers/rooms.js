@@ -11,7 +11,7 @@ const rooms = async function(req, res,next){
     await fetch(roomEndPoint, options)
     .then(res=> res.json())
     .then(json => {
-        // console.log(json);
+         console.log(json);
         
         if(!(json instanceof Array)){
             message = 'API lookup error';
@@ -22,7 +22,8 @@ const rooms = async function(req, res,next){
         res.render('rooms', {
             title: 'Rooms', 
             rooms: json,
-            isRoom: true 
+            isRoom: true,
+            message 
         });
     })
     .catch(err => res.status(500).send(err.message));
