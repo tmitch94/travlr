@@ -34,9 +34,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-// app.use('/travel', travelRouter)
+app.use('/travel', travelRouter)
 app.use('/users', usersRouter);
-// app.use('/rooms', roomRouter);
+app.use('/rooms', roomRouter);
 app.use('/api',apiRouter);
 
 
