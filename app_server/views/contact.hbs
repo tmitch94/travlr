@@ -3,27 +3,50 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Dive Sites - Bhaccasyoniztas Beach Resort Website Template</title>
+	<title>Contact - Travlr Getaways Website Template</title>
 	<link rel="stylesheet" href="stylesheets/style.css" type="text/css">
 </head>
 <body>
 	<div id="background">
 		<div id="page">
-			{{> header }}
+			{{> header}}
 			<div id="contents">
 				<div class="box">
 					<div>
-						<div class="body">
-							<h1>Travel</h1>
-							<ul id="sites">
-				{{#each trips}}
-								<li>
-									<a href="/api/trips/{{this.code}}"><img src="images/{{this.image}}" alt="Img"</a>
-									<h2><a href="/travel">{{this.name}}</a></h2>
-									{{{this.description}}}
-								</li>
-				{{/each}}				
-							</ul>
+						<div id="contact" class="body">
+							<h1>Contact</h1>
+							<form action="/" method="post">
+								<table>
+									<tbody>
+										<tr>
+											<td>Name:</td>
+											<td><input type="text" value="" class="txtfield"></td>
+										</tr> <tr>
+											<td>Email:</td>
+											<td><input type="text" value="" class="txtfield"></td>
+										</tr> <tr>
+											<td>Subject:</td>
+											<td><input type="text" value="" class="txtfield"></td>
+										</tr> <tr>
+											<td class="txtarea">Message:</td>
+											<td><textarea></textarea></td>
+										</tr> <tr>
+											<td></td>
+											<td><input type="submit" value="" class="btn"></td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
+							<h2>Travlr Getaways</h2>
+							<p>
+								<span>Address:</span> {{this.contacts.address}}
+							</p>
+							<p>
+								<span>Telephone Number:</span> {{this.contacts.phone}}
+							</p>
+							<p>
+								<span>Fax Number:</span> {{this.contacts.fax}}
+							</p>
 						</div>
 					</div>
 				</div>
