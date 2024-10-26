@@ -10,6 +10,7 @@ var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var travelRouter = require('./app_server/routes/travel');
 var roomRouter = require ('./app_server/routes/rooms');
+var mealRouter = require ('./app_server/routes/meals');
 var apiRouter = require('./app_api/routes/index');
 
 var handlebars = require('hbs');
@@ -37,6 +38,7 @@ app.use('/', indexRouter);
 app.use('/travel', travelRouter)
 app.use('/users', usersRouter);
 app.use('/rooms', roomRouter);
+app.use('/meals', mealRouter);
 app.use('/api',apiRouter);
 
 
