@@ -1,12 +1,22 @@
 const express = require('express');
 const router = express.Router();
 
+const authController = require('../controllers/authentication');
 const tripsController = require('../controllers/trips');
 const roomsController = require('../controllers/rooms');
 const mealController = require('../controllers/meals');
 const contactController = require('../controllers/contact');
 
-router.route('/trips')
+router
+.route('/login')
+.post(authController.login);
+
+router
+.route('/register')
+.post(authController.register);
+
+router
+.route('/trips')
 .get(tripsController.tripList)
 .post(tripsController.tripsAddTrip);
 
