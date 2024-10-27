@@ -5,26 +5,17 @@ const User = mongoose.model("users");
 
 passport.use(
   new LocalStrategy(
-    {
-      usernameField: "email",
-    },
-    (username, password, done) => {
-      User.findOne({ email: username }, (err, user) => {
-        if (err) {
-          return done(err);
-        }
-        if (!user) {
-          return done(null, false, {
-            message: "Incorrect username.",
-          });
-        }
-        if (!user.validPassword(password)) {
-          return done(null, false, {
-            message: "Incorrect password.",
-          });
+    { usernameField: "email" },
+    async (email, password, done) => {
+      try {
+        const user = await User.findOne({ email });
+        if (!user || !user.validPassword(password)) {
+          return done(null, false, { message: "Invalid email or password" });
         }
         return done(null, user);
-      });
+      } catch (err) {
+        return done(err);
+      }
     }
   )
 );

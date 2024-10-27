@@ -1,34 +1,56 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Inject, Injectable } from '@angular/core';
+import { lastValueFrom, Observable } from 'rxjs';
 import { Trip } from '../models/trip';
+import { User } from '../models/user';
+import { BROWSER_STORAGE } from '../storage';
+import { AuthResponse } from '../models/authresponse';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TripDataService {
+  constructor(
+    private http: HttpClient,
+    @Inject(BROWSER_STORAGE) private storage: Storage
+  ) {}
 
-  url = 'http://localhost:3000/api/trips';
+  apiBaseUrl = 'http://localhost:3000/api/trips';
 
   addTrip(formData: Trip): Observable<Trip> {
-    return this.http.post<Trip>(this.url,formData);
+    return this.http.post<Trip>(this.apiBaseUrl, formData);
   }
 
-  constructor(private http: HttpClient) { }
+  getTrips(): Observable<Trip[]> {
+    return this.http.get<Trip[]>(this.apiBaseUrl);
+  }
 
-  getTrips():Observable<Trip[]> {
+  getTrip(tripCode: string): Observable<Trip[]> {
+    return this.http.get<Trip[]>(this.apiBaseUrl + '/' + tripCode);
+  }
+
+  updateTrip(formData: Trip): Observable<Trip> {
+    return this.http.put<Trip>(this.apiBaseUrl + '/' + formData.code, formData);
+  }
+
+  public login(user: User): Promise<AuthResponse> {
+    return this.makeAuthApiCall('login', user);
+  }
+
+  public register(user: User): Promise<AuthResponse> {
+    return this.makeAuthApiCall('register', user);
+  }
+
+  private async makeAuthApiCall(urlPath: string, user: User): Promise<AuthResponse> {
+    console.log(`Inside TripDataService#makeAuthApiCall('${urlPath}')`);
+    return await lastValueFrom(
+      this.http
+        .post<AuthResponse>(`${this.apiBaseUrl}/${urlPath}`, user)
+    ).catch(this.handleError);
+  }
   
-    return this.http.get<Trip[]>(this.url);
-  }
-
-  getTrip(tripCode:string): Observable<Trip[]>{
-    return this.http.get<Trip[]>(this.url + '/' + tripCode);
-
-  }
-
-  updateTrip(formData: Trip): Observable<Trip>{
-
-    return this.http.put<Trip>(this.url + '/' + formData.code, formData);
-
+  handleError(err:any): Promise<AuthResponse> {
+    console.error('Something has gone wrong', err);
+    return Promise.reject(err.message || err);
   }
 }
