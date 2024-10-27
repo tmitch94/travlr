@@ -14,7 +14,7 @@ const roomsController = require("../controllers/rooms");
 const mealController = require("../controllers/meals");
 const contactController = require("../controllers/contact");
 
-router.route("/login").post(authController.login);
+router.route("/trips/login").post(authController.login);
 
 router.route("/register").post(authController.register);
 
