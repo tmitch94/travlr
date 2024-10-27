@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TripCardComponent } from '../trip-card/trip-card.component';
 import { Trip } from '../models/trip';
 import { TripDataService } from '../services/trip-data.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 import { Router } from '@angular/router';
 
@@ -19,10 +20,15 @@ export class TripListingComponent implements OnInit {
   message: string | undefined;
 
   constructor(
+    private authenticationService: AuthenticationService,
     private tripDataService: TripDataService,
     private router: Router
   ) {
     console.log('trip-listing constructor');
+  }
+
+  public isLoggedIn(){
+    return this.authenticationService.isLoggedIn();
   }
 
   addTrip() {
