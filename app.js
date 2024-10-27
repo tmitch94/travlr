@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 
 var createError = require("http-errors");
 var express = require("express");
@@ -6,7 +6,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var handlebars = require("hbs");
-var passport = require('passport');
+var passport = require("passport");
 
 require("./app_api/models/db");
 
@@ -76,6 +76,14 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
+});
+
+app.use((err, req, res, next) => {
+  if (err.name === "UnauthorizedError") {
+    res.status(401).json({
+      message: err.name + ": " + err.message,
+    });
+  }
 });
 
 module.exports = app;
